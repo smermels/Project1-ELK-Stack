@@ -64,9 +64,16 @@ A summary of the access policies in place can be found in the table below.
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous becauseit allows a consistent configuration. In addition to consistency, with an automated setup, the ELK stack can be created and configured very quickly.
 
 The playbook implements the following tasks:
-- _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
-- ...
-- ...
+
+  - Configure maximum mapped memory with sysctl module
+  
+  - Install docker.io and python3-pip packages with apt module
+  
+  - Install docker python package with pip
+  
+  - Enable systemd docker service
+  
+  - Run ELK docker container
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
@@ -74,13 +81,20 @@ The following screenshot displays the result of running `docker ps` after succes
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-- _TODO: List the IP addresses of the machines you are monitoring_
+
+- Web-1: 10.0.0.5
+
+- Web-2: 10.0.0.6
 
 We have installed the following Beats on these machines:
-- _TODO: Specify which Beats you successfully installed_
+
+- Filebeat
+
+- Metricbeat
 
 These Beats allow us to collect the following information from each machine:
-- _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
+- Filebeat parses and forwards system logs from the Web VMs to the ELK Stack in an easy to read format.
+- Metricbeat reports system and service statistics about the Web VMs to the ELK stack VM.._
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
