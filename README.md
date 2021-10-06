@@ -94,19 +94,12 @@ We have installed the following Beats on these machines:
 
 These Beats allow us to collect the following information from each machine:
 - Filebeat parses and forwards system logs from the Web VMs to the ELK Stack in an easy to read format.
-- Metricbeat reports system and service statistics about the Web VMs to the ELK stack VM.._
+- Metricbeat reports system and service statistics about the Web VMs to the ELK stack VM.
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the _____ file to _____.
-- Update the _____ file to include...
-- Run the playbook, and navigate to ____ to check that the installation worked as expected.
-
-_TODO: Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it?_
-- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
-- _Which URL do you navigate to in order to check that the ELK server is running?
-
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+- Copy the ELKStackPlaybook.yml file to /etc/ansible/roles/.
+- Update the /etc/ansible/hosts/ file to include the ELK stack VM IP address.
+- Run the playbook, and navigate to http://23.102.108.30:5601/app/kibana to check that the installation worked as expected.
