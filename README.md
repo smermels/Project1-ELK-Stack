@@ -27,45 +27,41 @@ This document contains the following details:
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
-Load balancing ensures that the application will be highly _____, in addition to restricting _____ to the network.
-- _TODO: What aspect of security do load balancers protect? What is the advantage of a jump box?_
+Load balancing ensures that the application will be highly available, in addition to restricting access to the network.
 
-Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the _____ and system _____.
-- _TODO: What does Filebeat watch for?_
-- _TODO: What does Metricbeat record?_
+Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the log files and system metrics.
 
 The configuration details of each machine may be found below.
 _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
 
-| Name     | Function | IP Address | Operating System |
-|----------|----------|------------|------------------|
-| Jump Box | Gateway  | 10.0.0.1   | Linux            |
-| TODO     |          |            |                  |
-| TODO     |          |            |                  |
-| TODO     |          |            |                  |
+|         Name         | Function           | Private IP Address | Public IP Address | Operating System |
+|:--------------------:|--------------------|--------------------|-------------------|------------------|
+| Jump Box Provisioner | Gateway            | 10.0.0.4           | 13.72.80.50       | Ubuntu LTS 18.04 |
+| Web-1                | Application Server | 10.0.0.5           | 40.114.125.52     | Ubuntu LTS 18.04 |
+| Web-2                | Application Server | 10.0.0.6           | 40.114.125.52     | Ubuntu LTS 18.04 |
+| ELK-Stack            | ELK Stack          | 10.1.0.4           | 23.102.108.30     | Ubuntu LTS 18.04 |
 
 ### Access Policies
 
 The machines on the internal network are not exposed to the public Internet. 
 
-Only the _____ machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-- _TODO: Add whitelisted IP addresses_
+Only the Jump Box Provisioner and ELK Stacks machines can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
+- My Home IP Address
 
-Machines within the network can only be accessed by _____.
-- _TODO: Which machine did you allow to access your ELK VM? What was its IP address?_
+Machines within the network can only be accessed by the Jump Box Privisioner.
 
 A summary of the access policies in place can be found in the table below.
 
-| Name     | Publicly Accessible | Allowed IP Addresses |
-|----------|---------------------|----------------------|
-| Jump Box | Yes/No              | 10.0.0.1 10.0.0.2    |
-|          |                     |                      |
-|          |                     |                      |
+|         Name         | Publicly Accessible | Allowed IP Address |
+|:--------------------:|---------------------|--------------------|
+| Jump Box Provisioner | Yes                 | My Home IP Address |
+| ELK-Stack            | Yes                 | My Home IP Address |
+| Web-1                | No                  | 10.0.0.4           |
+| Web-2                | No                  | 10.0.0.4           |
 
 ### Elk Configuration
 
-Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
-- _TODO: What is the main advantage of automating configuration with Ansible?_
+Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous becauseit allows a consistent configuration. In addition to consistency, with an automated setup, the ELK stack can be created and configured very quickly.
 
 The playbook implements the following tasks:
 - _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
